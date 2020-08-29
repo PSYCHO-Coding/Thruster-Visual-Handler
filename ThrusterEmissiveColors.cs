@@ -163,8 +163,6 @@ namespace PSYCHO_SuperThrusters.ThrusterEmissiveColors
             }
         }
 
-
-
         float glow;
         float CurrentEmissiveMultiplier = 0f;
         // Handle dynamic color changes.
@@ -176,7 +174,7 @@ namespace PSYCHO_SuperThrusters.ThrusterEmissiveColors
                 return;
             }
 
-            if (block.IsFunctional)
+            if (block.IsFunctional && block.IsWorking && block.Enabled)
             {
                 float thrustPercent = block.CurrentThrust / block.MaxThrust;
 
@@ -205,7 +203,20 @@ namespace PSYCHO_SuperThrusters.ThrusterEmissiveColors
                 if (CurrentEmissiveMultiplier > 0)
                     CurrentEmissiveMultiplier -= 0.005f;
 
-                Color color = Color.Lerp(CurrentColor, NonFunctionalColor, glow);
+                Color color = ErrorColor;
+
+                if (!block.IsWorking)
+                {
+                    color = Color.Lerp(CurrentColor, NonWorkingColor, glow);
+                }
+                else if (block.Enabled)
+                {
+                    color = Color.Lerp(CurrentColor, OnColor, glow);
+                }
+                else
+                {
+                    color = Color.Lerp(CurrentColor, OffColor, glow);
+                }
 
                 block.SetEmissiveParts(EmissiveMaterialName, color, CurrentEmissiveMultiplier);
 
