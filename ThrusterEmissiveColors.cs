@@ -56,7 +56,7 @@ namespace PSYCHO_SuperThrusters.ThrusterEmissiveColors
 
         bool ChangeColorByThrustOutput = true;           // Change this for static or dynamic colors.
         float AntiFlickerThreshold = 0.01f;              // If the emissive flicker, increase the threshold.
-        Color ColorAtMaxTrhust = new Color(255, 40, 10); // Color to reach at max thrust, otherwise 'OnColor' will be used when thruster is idle.
+        Color ColorAtMaxThrust = new Color(255, 40, 10); // Color to reach at max thrust, otherwise 'OnColor' will be used when thruster is idle.
         float MaxTrhust_EmissiveMultiplierMin = 1f;
         float MaxTrhust_EmissiveMultiplierMax = 50f;
 
@@ -191,7 +191,7 @@ namespace PSYCHO_SuperThrusters.ThrusterEmissiveColors
                 else
                     CurrentEmissiveMultiplier = MaxTrhust_EmissiveMultiplierMin + (MaxTrhust_EmissiveMultiplierMax - MaxTrhust_EmissiveMultiplierMin) * glow;
 
-                CurrentColor = Color.Lerp(OnColor, ColorAtMaxTrhust, glow);
+                CurrentColor = Color.Lerp(OnColor, ColorAtMaxThrust, glow);
 
                 block.SetEmissiveParts(EmissiveMaterialName, CurrentColor, CurrentEmissiveMultiplier);
             }
