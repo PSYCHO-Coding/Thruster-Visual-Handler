@@ -68,6 +68,9 @@
     <Reference Include="VRage">
       <HintPath>..\..\..\..\..\..\..\..\..\..\..\Steam\steamapps\common\SpaceEngineers\Bin64\VRage.dll</HintPath>
     </Reference>
+    <Reference Include="VRage.Audio">
+      <HintPath>..\..\..\..\..\..\..\..\..\..\Steam\steamapps\common\SpaceEngineers\Bin64\VRage.Audio.dll</HintPath>
+    </Reference>
     <Reference Include="VRage.Game">
       <HintPath>..\..\..\..\..\..\..\..\..\..\..\Steam\steamapps\common\SpaceEngineers\Bin64\VRage.Game.dll</HintPath>
     </Reference>
@@ -80,6 +83,9 @@
     <Reference Include="VRage.Math">
       <HintPath>..\..\..\..\..\..\..\..\..\..\..\Steam\steamapps\common\SpaceEngineers\Bin64\VRage.Math.dll</HintPath>
     </Reference>
+    <Reference Include="VRage.Mod.Io">
+      <HintPath>..\..\..\..\..\..\..\..\..\..\Steam\steamapps\common\SpaceEngineers\Bin64\VRage.Mod.Io.dll</HintPath>
+    </Reference>
     <Reference Include="VRage.Render">
       <HintPath>..\..\..\..\..\..\..\..\..\..\..\Steam\steamapps\common\SpaceEngineers\Bin64\VRage.Render.dll</HintPath>
     </Reference>
@@ -88,8 +94,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ThrusterEmissiveColors.cs" />
+    <Compile Include="ApplyEmissives.cs" />
+    <Compile Include="ThrusterUpgrade.cs" />
+    <Compile Include="PsychosLibrary.cs" />
+    <Compile Include="ThrusterDataHandler.cs" />
+    <Compile Include="ThrusterVisualHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserSettings.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="README.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
